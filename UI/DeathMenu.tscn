@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/MenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/DeathMenu.gd" type="Script" id=2]
+
+[node name="Deathmenu" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="GameOverLabel" type="Label" parent="."]
+margin_top = 138.0
+margin_right = 1280.0
+margin_bottom = 188.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgainLabel" type="Label" parent="."]
+margin_top = 489.014
+margin_right = 1280.0
+margin_bottom = 540.014
+custom_fonts/font = ExtResource( 1 )
+text = "Press [Spacebar] To try again!"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+margin_top = 301.034
+margin_right = 1280.0
+margin_bottom = 352.034
+custom_fonts/font = ExtResource( 1 )
+text = "FINAL SCORE: ????"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

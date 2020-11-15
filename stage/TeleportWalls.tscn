@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://stage/LeftWall.gd" type="Script" id=1]
+[ext_resource path="res://stage/RightWall.gd" type="Script" id=2]
+[ext_resource path="res://stage/TopWall.gd" type="Script" id=3]
+[ext_resource path="res://stage/BottomWall.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 440 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 440 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 720, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 720, 10 )
+
+[node name="TeleportWalls" type="Node2D"]
+
+[node name="RightWall" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2( 1360, 360 )
+shape = SubResource( 1 )
+
+[node name="LeftWall" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2( -80, 360 )
+shape = SubResource( 2 )
+
+[node name="TopWall" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2( 640, -80 )
+shape = SubResource( 3 )
+
+[node name="BottomWall" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2( 640, 800 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="RightWall" to="RightWall" method="teleport"]
+[connection signal="body_entered" from="LeftWall" to="LeftWall" method="teleport"]
+[connection signal="body_entered" from="TopWall" to="TopWall" method="teleport"]
+[connection signal="body_entered" from="BottomWall" to="BottomWall" method="teleport"]
